@@ -20,8 +20,6 @@ vagrant ssh
 camflow-ifc -v
 uname -r
 # check services
-cat /tmp/audit.log
-cat /tmp/config.log
+cat /tmp/audit.log # audit service logs
+cat /tmp/camflow.clg # configuration service log
 ```
-
-
