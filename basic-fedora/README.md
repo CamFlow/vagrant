@@ -1,7 +1,27 @@
-# Basic
+# Basic CamFlow on Fedora
 
 TODO description
 
 ## Installation
+
+```
+git clone https://github.com/CamFlow/vagrant.git
+cd ./vagrant/basic-fedora
+vagrant up
+```
+
+Note: the installation process can take an extended amount of time depending on your configuration.
+
+## Testing Installation
+
+``` shell
+vagrant ssh
+# check installed version against CamFlow head
+camflow-ifc -v
+uname -r
+# check services
+cat /tmp/audit.log
+cat /tmp/config.log
+```
 
 
