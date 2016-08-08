@@ -21,5 +21,5 @@ camflow-ifc -v
 uname -r
 # check services
 cat /tmp/audit.log # audit service logs
-cat /tmp/camflow.clg # configuration service log
+cat /tmp/camflow.clg # configuration service logs
 ```
