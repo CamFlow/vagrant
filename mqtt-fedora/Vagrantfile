@@ -55,7 +55,7 @@ Vagrant.configure(2) do |config|
    # Customize number of CPU
    vb.cpus = 2
    # Customize VM name
-   vb.name = "CamFlow-basic"
+   vb.name = "CamFlow-mqtt"
   end
   #
   # View the documentation for the provider you are using for more
