@@ -6,7 +6,7 @@ TODO description
 
 ```
 git clone https://github.com/CamFlow/vagrant.git
-cd ./vagrant/basic-fedora
+cd ./vagrant/mqtt-fedora
 vagrant up
 ```
 
