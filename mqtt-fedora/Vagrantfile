@@ -76,11 +76,12 @@ Vagrant.configure(2) do |config|
     sudo dnf -y -v install ncurses-devel cmake clang gcc-c++ wget git openssl-devel bc nano zlib
     git clone https://github.com/CamFlow/camflow-install.git
     cd camflow-install && sudo make all
+    cd ..
     git clone https://github.com/CamFlow/mqtt-publisher-service.git
     cd mqtt-publisher-service && git checkout tags/v0.1.1
-    cd mqtt-publisher-service && make prepare
-    cd mqtt-publisher-service && make all
-    cd mqtt-publisher-service && sudo make install
+    make prepare
+    make all
+    sudo make install
     # boot by default to camflow
     sudo sed -i 's/saved/0/g' /etc/default/grub
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
