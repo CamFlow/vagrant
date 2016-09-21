@@ -21,3 +21,4 @@ sudo apt-get install vagrant
 
 * [Fedora Basic](https://github.com/CamFlow/vagrant/tree/master/basic-fedora)
 * [Fedora MQTT](https://github.com/CamFlow/vagrant/tree/master/mqtt-fedora)
+* [Fedora dev](https://github.com/CamFlow/vagrant/tree/master/dev-fedora)
