@@ -7,6 +7,7 @@ TODO description
 ```
 git clone https://github.com/CamFlow/vagrant.git
 cd ./vagrant/mqtt-fedora
+vagrant plugin install vagrant-vbguest
 vagrant up
 ```
 
