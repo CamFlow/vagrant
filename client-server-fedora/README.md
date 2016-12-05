@@ -33,13 +33,13 @@ Open http://camflow.org/demo and start `CamFlow MQTT`
 Prepare the server:
 ``` shell
 vagrant ssh server
-./examples/provenance/tcp-server 8888
+./examples/provenance/tcp-server.o 8888
 ```
 
 On a second terminal prepare the client:
 ``` shell
 vagrant ssh client
-./examples/provenance/tcp-client 192.168.33.3 8888
+./examples/provenance/tcp-client.o 192.168.33.3 8888
 ```
 
 The page http://camflow.org/demo, in your favourite browser should now display a
