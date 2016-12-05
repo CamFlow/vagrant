@@ -1,4 +1,4 @@
-# MQTT CamFlow on Fedora
+# Client-Server example
 
 TODO description
 
