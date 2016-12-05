@@ -37,7 +37,6 @@ vagrant ssh server
 ```
 
 On a second terminal prepare the client:
-Prepare the server:
 ``` shell
 vagrant ssh client
 ./examples/provenance/tcp-client 192.168.33.3 8888
@@ -48,4 +47,4 @@ graph similar to this one:
 
 ![Provenance](https://raw.githubusercontent.com/CamFlow/vagrant/master/client-server-fedora/img/client-server.png)
 
-The larger box represent a given machine. The nodes outside of those machine are the ip packet being exchanged.
+The larger boxes represent a given machine. The nodes outside of those machines are the ip packets being exchanged.
