@@ -1,12 +1,12 @@
 # CamFlow Dev on Fedora
 
-Vagrant script setting up a Fedora VM to develop CamFlow.
+Vagrant script setting up a XUbuntu VM to develop CamFlow.
 
 ## Installation
 
 ```
 git clone https://github.com/CamFlow/vagrant.git
-cd ./vagrant/dev-fedora
+cd ./vagrant/dev-ubuntu
 vagrant plugin install vagrant-vbguest
 vagrant up
 ```
