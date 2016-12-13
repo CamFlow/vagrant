@@ -71,7 +71,7 @@ Vagrant.configure(2) do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
     sudo dnf -y -v groupinstall 'Development Tools'
-    sudo dnf -y -v install ncurses-devel cmake clang gcc-c++ wget git openssl-devel bc nano patch
+    sudo dnf -y -v install ncurses-devel cmake clang gcc-c++ wget git openssl-devel bc nano patch mosquitto
     mkdir workspace
     cd workspace
     git clone https://github.com/CamFlow/camflow-dev.git
