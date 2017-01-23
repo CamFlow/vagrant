@@ -14,7 +14,7 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "box-cutter/fedora23"
+  config.vm.box = "bento/fedora-25"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -73,12 +73,12 @@ Vagrant.configure(2) do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
     sudo dnf -y -v groupinstall 'Development Tools'
-    sudo dnf -y -v install ncurses-devel cmake clang gcc-c++ wget git openssl-devel bc nano zlib patch mosquitto
+    sudo dnf -y -v install ncurses-devel cmake clang gcc-c++ wget git openssl-devel bc nano zlib patch mosquitto sparse flawfinder
     git clone https://github.com/CamFlow/camflow-install.git
     cd camflow-install && sudo make all
     cd ..
     git clone https://github.com/CamFlow/mqtt-publisher-service.git
-    cd mqtt-publisher-service && git checkout tags/v0.1.6
+    cd mqtt-publisher-service && git checkout tags/v0.2.0
     make prepare
     make mosquitto
     make all

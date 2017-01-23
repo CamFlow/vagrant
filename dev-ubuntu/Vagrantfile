@@ -71,7 +71,7 @@ Vagrant.configure(2) do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
     sudo apt-get -y install build-essential
-    sudo apt-get -y install libncurses-dev cmake clang g++ wget git libssl-dev bc nano patch mosquitto
+    sudo apt-get -y install libncurses-dev cmake clang g++ wget git libssl-dev bc nano patch mosquitto sparse flawfinder
     mkdir workspace
     cd workspace
     git clone https://github.com/CamFlow/camflow-dev.git
@@ -84,10 +84,7 @@ Vagrant.configure(2) do |config|
     git pull
     make prepare
     cp -f ./configs/config-ubuntu ./.config
-    cd build/camflow-ifc-lib
-    git checkout dev
-    git pull
-    cd ../camflow-provenance-lib
+    cd build/camflow-provenance-lib
     git checkout dev
     git pull
     cd ../camflow-config
