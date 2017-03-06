@@ -11,6 +11,8 @@ vagrant plugin install vagrant-vbguest
 vagrant up
 ```
 
+**You may need to run `vagrant up` twice.**
+
 Note: the installation process can take an extended amount of time depending on your configuration.
 
 ## Testing Installation
