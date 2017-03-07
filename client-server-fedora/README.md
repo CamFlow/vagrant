@@ -43,6 +43,9 @@ On a second terminal prepare the client:
 vagrant ssh client
 ./examples/provenance/tcp-client.o 192.168.33.3 8888
 ```
+If you cannot connect to the remote machine. Please run
+`sudo service network restart` on both guest machines. See
+[vagrant issue](https://github.com/mitchellh/vagrant/issues/8115) for details.
 
 The page http://camflow.org/demo, in your favourite browser should now display a
 graph similar to this one:
