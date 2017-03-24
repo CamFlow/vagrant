@@ -14,6 +14,9 @@ vagrant up
 Note: the installation process can take an extended amount of time depending on
 your configuration.
 
+Note: In case of error on `vagrant up` check for virtualbox version mismatch.
+You may need to update your host virtualbox installation.
+
 ## Testing Installation
 
 ``` shell
