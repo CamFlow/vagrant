@@ -73,6 +73,7 @@ Vagrant.configure(2) do |config|
 		sudo dnf -y -v install fedora-upgrade
 		sudo fedora-upgrade
 		sudo dnf -y -v upgrade
+    sudo dnf -y -v update
     sudo dnf -y -v groupinstall 'Development Tools'
     sudo dnf -y -v install ncurses-devel cmake clang gcc-c++ wget git openssl-devel bc nano patch mosquitto sparse flawfinder elfutils-libelf-devel
 		sudo dnf -y -v install xterm firefox
