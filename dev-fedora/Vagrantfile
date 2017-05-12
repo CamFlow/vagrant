@@ -84,7 +84,6 @@ Vagrant.configure(2) do |config|
 		mkdir workspace
     cd workspace
     git clone https://github.com/CamFlow/camflow-dev.git
-    git clone https://github.com/CamFlow/mqtt-publisher-service.git
     git clone https://github.com/CamFlow/camflow-patches.git
     git clone https://github.com/CamFlow/camflow-install.git
     git clone https://github.com/CamFlow/examples.git
@@ -102,11 +101,10 @@ Vagrant.configure(2) do |config|
 		cd ../camflow-cli
     git checkout dev
     git pull
-    cd ../../../mqtt-publisher-service
-    git checkout dev
-    git pull
-    make prepare
-		cd ../camflow-query
+    cd ../camflow-service
+		git checkout dev
+		git pull
+		cd ../../../camflow-query
     git checkout dev
     git pull
     make prepare
