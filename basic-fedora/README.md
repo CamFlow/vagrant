@@ -30,3 +30,5 @@ cat /tmp/camflow.clg # configuration service logs
 The capture policy can be modified by editing `/etc/camflow.ini` (e.g. `sudo nano /etc/camflow.ini`). Please see [CamFlow Config](https://github.com/CamFlow/camflow-config) for more details.
 
 Provenance publication can be modified by editing `/etc/camflow-service.ini` (e.g. `sudo nano /etc/camflow-service.ini`). Please see [CamFlow Service](https://github.com/CamFlow/camflow-service) for more details.
+
+Reboot the machine for the new configuration to take effect (alternatively you can restart the associated services).
