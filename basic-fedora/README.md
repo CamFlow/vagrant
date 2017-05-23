@@ -18,7 +18,7 @@ Note: the installation process can take an extended amount of time depending on 
 ``` shell
 vagrant ssh
 # check installed version against CamFlow head
-camflow-prov -v
+camflow -v
 uname -r
 # check services
 cat /tmp/audit.log # audit service logs
