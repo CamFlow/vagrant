@@ -1,6 +1,6 @@
 # Basic CamFlow on Fedora
 
-TODO description
+This is a minimal configuration running CamFlow based on the Fedora distribution.
 
 ## Installation
 
