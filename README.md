@@ -17,6 +17,8 @@ sudo apt-get install virtualbox
 sudo apt-get install vagrant
 ```
 
+Note: we advise to run the latest version as vagrant is prone to various version compatibility issue.
+
 ## Instructions
 
 * [Fedora Basic](https://github.com/CamFlow/vagrant/tree/master/basic-fedora)
