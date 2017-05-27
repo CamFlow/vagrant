@@ -77,7 +77,8 @@ Vagrant.configure(2) do |config|
     sudo dnf -y -v groupinstall 'Development Tools'
     sudo dnf -y -v install ncurses-devel cmake clang gcc-c++ wget git openssl-devel bc nano patch mosquitto sparse flawfinder elfutils-libelf-devel
 		sudo dnf -y -v install xterm firefox
-    sudo dnf -y -v install uncrustify
+		sudo dnf -y -v install uncrustify
+    sudo dnf -y -v install rpm-build
 		wget https://atom.io/download/rpm
 		mv ./rpm ./atom.rpm
 		sudo dnf -y install ./atom.rpm
