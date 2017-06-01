@@ -77,11 +77,11 @@ Vagrant.configure(2) do |config|
 		curl -s https://packagecloud.io/install/repositories/camflow/provenance/script.rpm.sh | sudo bash
 		sudo dnf -y -v install kernel-4.11.3camflow_0.3.2-2.x86_64
 		sudo dnf -y -v install kernel-headers-4.11.3camflow_0.3.2-2.x86_64
-		sudo dnf -y -v install camflow-provenance-lib
-		sudo dnf -y -v install camflow-cli
-		sudo dnf -y -v install camflow-config
+		sudo dnf -y -v install camflow-provenance-lib-0.3.2-1.x86_64
+		sudo dnf -y -v install camflow-cli-0.1.3-1.x86_64
+		sudo dnf -y -v install camflow-config-0.3.1-1.x86_64
 		systemctl enable camflow-config.service
-		sudo dnf -y -v install camflow-service
+		sudo dnf -y -v install camflow-service-0.1.1-1.x86_64
 		systemctl enable camflow-provenance.service
 		# boot by default to camflow
     sudo sed -i 's/saved/0/g' /etc/default/grub
