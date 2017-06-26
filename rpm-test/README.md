@@ -21,14 +21,14 @@ vagrant ssh
 camflow -v
 uname -r
 # check services
-cat /tmp/audit.log # audit service logs
-cat /tmp/camflow.clg # configuration service logs
+journalctl -b | grep camflowd # audit service logs
+journalctl -b | grep camconfd # configuration service logs
 ```
 
 ## Configuring CamFlow
 
-The capture policy can be modified by editing `/etc/camflow.ini` (e.g. `sudo nano /etc/camflow.ini`). Please see [CamFlow Config](https://github.com/CamFlow/camflow-config) for more details.
+The capture policy can be modified by editing `/etc/camflow.ini` (e.g. `sudo nano /etc/camflow.ini`). Please see [camconfd](https://github.com/CamFlow/camconfd) for more details.
 
-Provenance publication can be modified by editing `/etc/camflow-service.ini` (e.g. `sudo nano /etc/camflow-service.ini`). Please see [CamFlow Service](https://github.com/CamFlow/camflow-service) for more details.
+Provenance publication can be modified by editing `/etc/camflowd.ini` (e.g. `sudo nano /etc/camflowd.ini`). Please see [camflowd](https://github.com/CamFlow/camflowd) for more details.
 
 Reboot the machine for the new configuration to take effect (alternatively you can restart the associated services).

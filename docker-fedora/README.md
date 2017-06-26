@@ -19,9 +19,9 @@ your configuration.
 ``` shell
 vagrant ssh
 # check installed version against CamFlow head
-camflow-ifc -v
+camflow -v
 uname -r
 # check services
-cat /tmp/audit.log # audit service logs
-cat /tmp/camflow.clg # configuration service logs
+journalctl -b | grep camflowd # audit service logs
+journalctl -b | grep camconfd # configuration service logs
 ```
