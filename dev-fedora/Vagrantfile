@@ -79,6 +79,7 @@ Vagrant.configure(2) do |config|
 		sudo dnf -y -v install uncrustify
     sudo dnf -y -v install rpm-build
     sudo dnf -y -v install ruby
+    sudo dnf -y -v install coccinelle
     gem install package_cloud
     sudo groupadd docker
     sudo gpasswd -a ${USER} docker
