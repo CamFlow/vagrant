@@ -9,6 +9,7 @@ git clone https://github.com/CamFlow/vagrant.git
 cd ./vagrant/basic-fedora
 vagrant plugin install vagrant-vbguest
 vagrant up
+vagrant halt
 ```
 
 Note: the installation process can take an extended amount of time depending on your configuration.
