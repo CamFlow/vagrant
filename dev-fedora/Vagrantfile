@@ -104,13 +104,13 @@ Vagrant.configure(2) do |config|
     cd build/camflow-provenance-lib
     git checkout dev
     git pull
-    cd ../camflow-config
+    cd ../camconfd
     git checkout dev
     git pull
 		cd ../camflow-cli
     git checkout dev
     git pull
-    cd ../camflow-service
+    cd ../camflowd
 		git checkout dev
 		git pull
 		cd ../../../camflow-query
