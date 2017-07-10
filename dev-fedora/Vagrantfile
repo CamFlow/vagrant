@@ -51,7 +51,7 @@ Vagrant.configure(2) do |config|
     # Customize CPU cap
     vb.customize ["modifyvm", :id, "--cpuexecutioncap", "70"]
     # Customize number of CPU
-    vb.cpus = 2
+    vb.cpus = 4
     # Customize VM name
     vb.name = "CamFlow-dev-fedora"
   end
