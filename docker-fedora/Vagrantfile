@@ -82,6 +82,7 @@ Vagrant.configure(2) do |config|
 		sudo dnf -y install curl
 		curl -s https://packagecloud.io/install/repositories/camflow/provenance/script.rpm.sh | sudo bash
 		sudo dnf -y install camflow
+    sudo dnf -y install camflow --allowerasing
 		sudo systemctl enable camconfd.service
 		sudo systemctl enable camflowd.service
     git clone https://github.com/CamFlow/examples.git
