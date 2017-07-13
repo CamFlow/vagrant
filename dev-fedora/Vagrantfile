@@ -81,6 +81,7 @@ Vagrant.configure(2) do |config|
     sudo dnf -y -v install ruby
     sudo dnf -y -v install coccinelle
     sudo dnf -y -v install phoronix-test-suite
+    sudo dnf -y -v install automake
     gem install package_cloud
     sudo groupadd docker
     sudo gpasswd -a ${USER} docker
