@@ -80,6 +80,7 @@ Vagrant.configure(2) do |config|
     sudo dnf -y -v install rpm-build
     sudo dnf -y -v install ruby
     sudo dnf -y -v install coccinelle
+    sudo dnf -y -v install phoronix-test-suite
     gem install package_cloud
     sudo groupadd docker
     sudo gpasswd -a ${USER} docker
@@ -97,6 +98,7 @@ Vagrant.configure(2) do |config|
     git clone https://github.com/CamFlow/examples.git
     git clone https://github.com/CamFlow/camflow-query.git
     git clone https://github.com/CamFlow/information-flow-patch
+    git clone https://github.com/CamFlow/benchmark.git
     cd camflow-dev
     git checkout dev
     git pull
