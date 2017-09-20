@@ -9,6 +9,8 @@ git clone https://github.com/CamFlow/vagrant.git
 cd ./vagrant/rpm-test
 vagrant plugin install vagrant-vbguest
 vagrant up
+vagrant halt
+vagrant up
 ```
 
 Note: the installation process can take an extended amount of time depending on your internet connection speed.
