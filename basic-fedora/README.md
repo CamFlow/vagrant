@@ -10,6 +10,8 @@ cd ./vagrant/basic-fedora
 vagrant plugin install vagrant-vbguest
 vagrant up
 vagrant halt
+vagrant up
+# ensure that the right kernel is picked during boot
 ```
 
 Note: the installation process can take an extended amount of time depending on your configuration.
