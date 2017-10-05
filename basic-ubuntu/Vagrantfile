@@ -12,7 +12,7 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "puphpet/ubuntu1404-x64"
+  config.vm.box = "promet/ubuntu-16.04-java8-runtime"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -71,11 +71,9 @@ Vagrant.configure(2) do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
     sudo apt-get -y install build-essential
-sudo apt-get -y install libncurses-dev cmake clang g++ wget git libssl-dev bc nano patch mosquitto
+    sudo apt-get -y install libncurses-dev cmake clang g++ wget git libssl-dev bc nano patch mosquitto
+    sudo apt-get -y install ncurses-dev libncurses5-dev
     git clone https://github.com/CamFlow/camflow-install.git
     cd camflow-install && sudo make all
-    # boot by default to camflow
-    sudo sed -i 's/saved/0/g' /etc/default/grub
-    sudo grub2-mkconfig -o /boot/grub2/grub.cfg
   SHELL
 end
