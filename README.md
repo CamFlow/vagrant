@@ -21,5 +21,10 @@ Note: we advise to run the latest version as vagrant is prone to various version
 
 ## Instructions
 
-* [Fedora Basic](https://github.com/CamFlow/vagrant/tree/master/basic-fedora)
-* [Fedora dev](https://github.com/CamFlow/vagrant/tree/master/dev-fedora)
+* [Fedora Basic](https://github.com/CamFlow/vagrant/tree/master/basic-fedora): install CamFlow from source in Fedora
+* [Fedora rpm](https://github.com/CamFlow/vagrant/tree/master/basic-fedora): install CamFlow from package manager
+* [Fedora docker](https://github.com/CamFlow/vagrant/tree/master/basic-fedora): install CamFlow from package manager (with working docker install)
+* [Fedora light](https://github.com/CamFlow/vagrant/tree/master/basic-fedora): install CamFlow from package manager (no GUI)
+* [Fedora dev](https://github.com/CamFlow/vagrant/tree/master/dev-fedora): Fedora environment to develop CamFlow kernel
+* [Ubuntu Basic](https://github.com/CamFlow/vagrant/tree/master/basic-ubuntu): install CamFlow from source in Ubuntu
+* [Ubuntu dev](https://github.com/CamFlow/vagrant/tree/master/dev-ubuntu) Ubuntu environment to develop CamFlow kernel
