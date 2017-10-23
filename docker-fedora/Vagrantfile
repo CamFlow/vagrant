@@ -87,9 +87,6 @@ Vagrant.configure(2) do |config|
 		sudo systemctl enable camflowd.service
     sudo dnf -y install zlib-devel
     git clone https://github.com/CamFlow/examples.git
-    cd examples
-    make all
-		cd ..
 		sudo chown -R vagrant ./examples
     # boot by default to camflow
     sudo sed -i 's/saved/0/g' /etc/default/grub
