@@ -78,6 +78,6 @@ Vagrant.configure(2) do |config|
     git clone https://github.com/CamFlow/camflow-install.git
     cd camflow-install && sudo make all
     # we comment opaque out of the default configuration
-    sudo sed -i -e "s/opaque/;opaque/g" /etc/camflow.ini
+    sudo sed -i -e "s/opaque=\/usr\/bin\/bash/opaque=\/bin\/bash/g" /etc/camflow.ini
   SHELL
 end
