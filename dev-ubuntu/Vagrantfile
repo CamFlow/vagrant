@@ -108,7 +108,6 @@ Vagrant.configure(2) do |config|
 		cd ../../../camflow-query
     git checkout dev
     git pull
-    make prepare
     cd ../..
     sudo chown -R vagrant ./workspace
   SHELL
