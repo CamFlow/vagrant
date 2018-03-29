@@ -72,6 +72,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", inline: <<-SHELL
     sudo apt-get -y install build-essential
     sudo apt-get -y install libncurses-dev cmake clang g++ wget git libssl-dev bc nano patch mosquitto sparse flawfinder
+    sudo apt-get -y install zlib1g-dev
     sudo apt-get -y automake
     sudo apt-get -y coccinelle
     sudo apt-get -y install phoronix-test-suite
@@ -112,7 +113,7 @@ Vagrant.configure(2) do |config|
     sudo apt-get install -y oracle-java8-installer
     sudo apt-get install -y oracle-java8-set-default
     sudo apt-get -y install auditd fuse git libaudit-dev libfuse-dev linux-headers-`uname -r` lsof pkg-config uthash-dev
-    git clone https://github.com/ashish-gehani/SPADE.git
+    git clone https://github.com/tfjmp/SPADE.git
     cd SPADE
     ./configure
     make
