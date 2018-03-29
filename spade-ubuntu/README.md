@@ -1,6 +1,6 @@
 # CamFlow Dev on Fedora
 
-Vagrant script setting up a Fedora VM to develop CamFlow.
+Vagrant script setting up a Ubuntu VM to develop CamFlow.
 
 ## Installation
 
