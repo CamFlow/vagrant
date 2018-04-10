@@ -20,7 +20,7 @@ You may need to update your host virtualbox installation.
 ## Developing camflow
 
 All sources necessary to modify CamFlow should be available in the workspace folder in the vagrant user home directory.
-To run the current development branch of all the components, please do as follow:
+To build the current development branch of all the components, please do as follow:
 
 ``` shell
 cd workspace/camflow-dev
