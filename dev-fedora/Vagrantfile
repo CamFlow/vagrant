@@ -124,5 +124,9 @@ Vagrant.configure(2) do |config|
     git pull
     cd ../..
     sudo chown -R vagrant ./workspace
+    sudo dnf upgrade --refresh -y
+    sudo dnf install -y dnf-plugin-system-upgrade
+    sudo dnf system-upgrade download --releasever=28 -y --allowerasing
+    sudo dnf system-upgrade reboot -y
   SHELL
 end
