@@ -73,7 +73,7 @@ Vagrant.configure(2) do |config|
     sudo cp -f /vagrant/it /usr/bin/it
     sudo chmod 755 /usr/bin/it
     sudo dnf -y -v groupinstall 'Development Tools'
-    sudo dnf -y -v install ncurses-devel elfutils-libelf-devel cmake clang gcc-c++ wget git openssl-devel bc nano patch sparse flawfinder
+    sudo dnf -y -v install ncurses-devel elfutils-libelf-devel cmake clang gcc-c++ wget git openssl-devel bc nano patch sparse flawfinder bison flex
     git clone https://github.com/CamFlow/camflow-install.git
     cd camflow-install && sudo make all
     # boot by default to camflow
