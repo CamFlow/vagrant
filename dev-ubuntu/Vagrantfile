@@ -74,7 +74,7 @@ Vagrant.configure(2) do |config|
     sudo apt-get -y upgrade
     sudo apt-get -y install build-essential
     sudo apt-get -y install libncurses-dev cmake clang g++ wget git libssl-dev bc nano patch mosquitto sparse flawfinder
-    sudo apt-get -y automake bison flex
+    sudo apt-get -y automake bison flex libelf-dev
     sudo apt-get -y coccinelle
     sudo apt-get -y install phoronix-test-suite
     sudo apt-get -y install snapd

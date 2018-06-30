@@ -44,16 +44,19 @@ Vagrant.configure(2) do |config|
   # Example for VirtualBox:
   #
   config.vm.provider "virtualbox" do |vb|
-    # Display the VirtualBox GUI when booting the machine
-    vb.gui = true
-    # Customize the amount of memory on the VM:
-    vb.memory = "8192"
-    # Customize CPU cap
-    vb.customize ["modifyvm", :id, "--cpuexecutioncap", "70"]
-    # Customize number of CPU
-    vb.cpus = 4
-    # Customize VM name
-    vb.name = "CamFlow-SPADE"
+   # Display the VirtualBox GUI when booting the machine
+   #vb.gui = true
+   # Customize the amount of memory on the VM:
+   vb.memory = 4096
+   # Customize CPU cap
+   vb.customize ["modifyvm", :id, "--cpuexecutioncap", "70"]
+   # Customize number of CPU
+   vb.cpus = 2
+   # Customize VM name
+   vb.name = "CamFlow-SPADE"
+# config.ssh.username = "vagrant"
+# config.ssh.password = "vagrant"
+# config.ssh.insert_key = false
   end
   #
   # View the documentation for the provider you are using for more
@@ -70,68 +73,30 @@ Vagrant.configure(2) do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-		sudo dnf -y -v install fedora-upgrade
-		sudo fedora-upgrade
-		sudo dnf -y -v upgrade
-    sudo dnf -y -v groupinstall 'Development Tools'
-    sudo dnf -y -v install ncurses-devel cmake clang gcc-c++ wget git openssl-devel bc nano patch mosquitto sparse flawfinder elfutils-libelf-devel
-		sudo dnf -y -v install xterm firefox
-		sudo dnf -y -v install uncrustify
-    sudo dnf -y -v install rpm-build
-    sudo dnf -y -v install ruby ruby-devel redhat-rpm-config graphviz
-    sudo dnf -y -v install coccinelle
-    sudo dnf -y -v install phoronix-test-suite
-    sudo dnf -y -v install automake
-    sudo dnf -y -v install bison flex
-    gem install package_cloud
-    gem install json rgl mqtt rake bundler
-    sudo groupadd docker
-    sudo gpasswd -a ${USER} docker
-    sudo dnf -y -v install docker
-    sudo systemctl enable docker.service
-    sudo systemctl start docker
-		wget https://atom.io/download/rpm
-		mv ./rpm ./atom.rpm
-		sudo dnf -y install ./atom.rpm
-		mkdir workspace
-    cd workspace
-    git clone https://github.com/CamFlow/camflow-dev.git
-    git clone https://github.com/CamFlow/camflow-patches.git
-    git clone https://github.com/CamFlow/camflow-install.git
-    git clone https://github.com/CamFlow/examples.git
-    git clone https://github.com/CamFlow/camflow-query.git
-    git clone https://github.com/CamFlow/information-flow-patch
-    git clone https://github.com/CamFlow/benchmark.git
-    cd camflow-dev
-    git checkout dev
-    git pull
-    make prepare
-    make prepare_ltp
-    cd build/libprovenance
-    git checkout dev
-    git pull
-    cd ../camconfd
-    git checkout dev
-    git pull
-		cd ../camflow-cli
-    git checkout dev
-    git pull
-    cd ../camflowd
-		git checkout dev
-		git pull
-		cd ../../../camflow-query
-    git checkout dev
-    git pull
-    cd ..
-    git clone https://github.com/GTaf/SPADE.git
-    sudo dnf -y -v install audit fuse-devel fuse-libs git iptables kernel-devel-`uname -r` lsof uthash-devel
-    sudo dnf -y -v install wget
-    wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u171-b11/512cd62ec5174c3487ac17c61aaa89e8/jdk-8u171-linux-x64.rpm"
-    sudo dnf -y -v install ./jdk-8u171-linux-x64.rpm
+    sudo dnf -y install java-1.8.0-openjdk-devel
+    sudo dnf -y install audit fuse-devel fuse-libs git iptables kernel-devel-`uname -r` lsof uthash-devel elfutils-libelf-devel
+    git clone http://github.com/GTaf/SPADE
     cd SPADE
     ./configure
     make
-    cd ../..
-    sudo chown -R vagrant ./workspace
+    sudo chmod ug+s `which auditctl`
+    sudo chmod ug+s `which iptables`
+    sudo chown root lib/spadeAuditBridge
+    sudo chmod ug+s lib/spadeAuditBridge
+    sudo sed -i 's/active =.*/active = yes/g' /etc/audisp/plugins.d/af_unix.conf
+    sudo service auditd restart
+    sudo rm -rf .git
+    cd
+    sudo dnf -y install curl
+		curl -s https://packagecloud.io/install/repositories/camflow/provenance/script.rpm.sh | sudo bash
+		sudo dnf -y install camflow
+    sudo dnf -y install camflow --allowerasing
+		sudo systemctl enable camconfd.service
+		sudo systemctl enable camflowd.service
+		# boot by default to camflow
+    sudo sed -i 's/saved/0/g' /etc/default/grub
+    sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+    sudo dnf -y install ruby ruby-devel redhat-rpm-config graphviz
+    gem install json rgl mqtt rake bundler
   SHELL
 end
