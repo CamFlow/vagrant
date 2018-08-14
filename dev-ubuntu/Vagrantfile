@@ -85,7 +85,7 @@ Vagrant.configure(2) do |config|
     git clone https://github.com/CamFlow/camflow-patches.git
     git clone https://github.com/CamFlow/camflow-install.git
     git clone https://github.com/CamFlow/examples.git
-    git clone https://github.com/CamFlow/camflow-query.git
+    git clone https://github.com/CamFlow/libcamquery.git
     git clone https://github.com/CamFlow/information-flow-patch
     git clone https://github.com/CamFlow/benchmark.git
     cd camflow-dev
@@ -104,7 +104,7 @@ Vagrant.configure(2) do |config|
     cd ../camflowd
 		git checkout dev
 		git pull
-		cd ../../../camflow-query
+		cd ../../../libcamquery
     git checkout dev
     git pull
     cd ../..
