@@ -37,7 +37,7 @@ Vagrant.configure(2) do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  # config.vm.synced_folder "../data", "/vagrant_data"
+  config.vm.synced_folder ".", "/vagrant_data"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -54,6 +54,10 @@ Vagrant.configure(2) do |config|
     vb.cpus = 4
     # Customize VM name
     vb.name = "CamFlow-dev-fedora"
+    # Customize video memory
+    vb.customize ["modifyvm", :id, "--vram", "128"]
+    # Enable, if Guest Additions are installed, whether hardware 3D acceleration should be available
+    vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
   end
   #
   # View the documentation for the provider you are using for more
@@ -126,7 +130,7 @@ Vagrant.configure(2) do |config|
     sudo chown -R vagrant ./workspace
     sudo dnf upgrade --refresh -y
     sudo dnf install -y dnf-plugin-system-upgrade
-    sudo dnf system-upgrade download --releasever=28 -y --allowerasing
+    sudo dnf system-upgrade download --releasever=29 -y --allowerasing
     sudo dnf system-upgrade reboot -y
   SHELL
 end
