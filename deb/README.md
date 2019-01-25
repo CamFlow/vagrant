@@ -1,12 +1,12 @@
 # rpm test on Fedora
 
-This is a minimal configuration running CamFlow based on the Fedora distribution.
+This is a minimal configuration running CamFlow based on the Ubuntu distribution.
 
 ## Installation
 
 ```
 git clone https://github.com/CamFlow/vagrant.git
-cd ./vagrant/rpm
+cd ./vagrant/deb
 vagrant plugin install vagrant-vbguest
 vagrant up
 vagrant halt
@@ -15,7 +15,7 @@ vagrant up
 ```
 
 Note: the installation process can take an extended amount of time depending on your internet connection speed.
-Note2: the rpm packages are graciously hosted on [packagecloud.io](https://packagecloud.io/camflow/provenance).
+Note2: the deb packages are graciously hosted on [packagecloud.io](https://packagecloud.io/camflow/provenance).
 
 ## Testing Installation
 
