@@ -1,4 +1,4 @@
-# rpm test on Fedora
+# deb test on Ubuntu
 
 This is a minimal configuration running CamFlow based on the Ubuntu distribution.
 
