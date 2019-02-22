@@ -87,6 +87,7 @@ Vagrant.configure(2) do |config|
     sudo dnf -y -v install coccinelle
     sudo dnf -y -v install phoronix-test-suite
     sudo dnf -y -v install automake
+    sudo dnf -y -v install alien
     gem install package_cloud
     gem install json rgl mqtt rake bundler
     gem install camtool
