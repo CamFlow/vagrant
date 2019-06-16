@@ -12,7 +12,7 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "mrlesmithjr/fedora30-desktop"
+  config.vm.box = "Pysis/fedora29-workstation"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -58,6 +58,9 @@ Vagrant.configure(2) do |config|
     vb.customize ["modifyvm", :id, "--vram", "128"]
     # Enable, if Guest Additions are installed, whether hardware 3D acceleration should be available
     vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
+   # Disable usb 2.0
+   vb.customize ["modifyvm", :id, "--usb", "on"]
+   vb.customize ["modifyvm", :id, "--usbehci", "off"]
   end
   #
   # View the documentation for the provider you are using for more

@@ -74,16 +74,18 @@ Vagrant.configure(2) do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-    sudo apt-get -y -q --force-yes update
-    sudo apt-get -y -q --force-yes upgrade
-    sudo apt-get -y -q --force-yes install build-essential
-    sudo apt-get -y -q --force-yes install libncurses-dev cmake clang gcc g++ wget git libssl-dev bc nano patch mosquitto sparse flawfinder
-    sudo apt-get -y -q --force-yes install automake bison flex libelf-dev uncrustify
-    sudo apt-get -y -q --force-yes install coccinelle
-    sudo apt-get -y -q --force-yes install phoronix-test-suite
-    sudo apt-get -y -q --force-yes install snapd
-    sudo apt-get -y -q --force-yes install ruby libz-dev zlib1g-dev
+    sudo apt-get -y --force-yes update
+    sudo apt-get -y --force-yes upgrade
+    sudo apt-get -y --force-yes install build-essential
+    sudo apt-get -y --force-yes install libncurses-dev cmake clang gcc g++ wget git libssl-dev bc nano patch mosquitto sparse flawfinder
+    sudo apt-get -y --force-yes install automake bison flex libelf-dev uncrustify
+    sudo apt-get -y --force-yes install coccinelle
+    sudo apt-get -y --force-yes install phoronix-test-suite
+    sudo apt-get -y --force-yes install snapd
+    sudo apt-get -y --force-yes install ruby libz-dev zlib1g-dev
     sudo snap install atom --classic
+    sudo apt-get -y --force-yes update
+    sudo apt-get -y --force-yes upgrade
     mkdir workspace
     cd workspace
     git clone https://github.com/CamFlow/camflow-dev.git
