@@ -12,7 +12,7 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "jhcook/fedora27"
+  config.vm.box = "mrlesmithjr/fedora30-desktop"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -37,7 +37,7 @@ Vagrant.configure(2) do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder ".", "/vagrant_data"
+  config.vm.synced_folder ".", "/vagrant", disabled: true
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -74,8 +74,6 @@ Vagrant.configure(2) do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-		sudo dnf -y -v install fedora-upgrade
-		sudo fedora-upgrade
 		sudo dnf -y -v upgrade
     sudo dnf -y -v groupinstall 'Development Tools'
     sudo dnf -y -v install ncurses-devel cmake clang gcc-c++ wget git openssl-devel bc nano patch mosquitto sparse flawfinder elfutils-libelf-devel
@@ -131,9 +129,5 @@ Vagrant.configure(2) do |config|
     git pull
     cd ../..
     sudo chown -R vagrant ./workspace
-    sudo dnf upgrade --refresh -y
-    sudo dnf install -y dnf-plugin-system-upgrade
-    sudo dnf system-upgrade download --releasever=29 -y --allowerasing
-    sudo dnf system-upgrade reboot -y
   SHELL
 end
