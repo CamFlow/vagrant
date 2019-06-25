@@ -73,8 +73,8 @@ Vagrant.configure(2) do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-    sudo cp -f /vagrant/it /usr/bin/it
-    sudo chmod 755 /usr/bin/it
+    sudo cp -f /vagrant/xit /usr/bin/xit
+    sudo chmod 755 /usr/bin/xit
     sudo dnf -y -v groupinstall 'Development Tools'
     sudo dnf -y -v install ncurses-devel elfutils-libelf-devel cmake clang gcc-c++ wget git openssl-devel bc nano patch sparse flawfinder bison flex
     git clone https://github.com/CamFlow/camflow-install.git
