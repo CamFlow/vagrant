@@ -12,7 +12,7 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "Pysis/fedora29-workstation"
+  config.vm.box = "mrlesmithjr/fedora31-desktop"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -89,6 +89,7 @@ Vagrant.configure(2) do |config|
     sudo dnf -y -v install phoronix-test-suite
     sudo dnf -y -v install automake
     sudo dnf -y -v install alien
+    sudo dnf -y -v install dwarves
     gem install package_cloud
     gem install json rgl mqtt rake bundler
     gem install camtool
