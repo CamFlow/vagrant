@@ -127,5 +127,6 @@ Vagrant.configure(2) do |config|
     git pull
     cd ../..
     sudo chown -R vagrant ./workspace
+    sudo pvresize /dev/sda3
   SHELL
 end
