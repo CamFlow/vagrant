@@ -75,40 +75,42 @@ Vagrant.configure(2) do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", privileged:false, inline: <<-SHELL
-	# Install Java
-	sudo dnf -y install java-1.8.0-openjdk-devel
-	# Download SPADE
-	sudo dnf -y install audit fuse-devel fuse-libs git iptables kernel-devel-`uname -r` lsof uthash-devel
-	wget https://github.com/ashish-gehani/SPADE/archive/master.zip
-	unzip master.zip
-	mv SPADE-master SPADE
-	cd SPADE
-	# Build SPADE
-	./configure
-	make
+    # Update installed packages
+    sudo dnf -y -v upgrade
 
-	# Download and Install CamFlow
-	curl -s https://packagecloud.io/install/repositories/camflow/provenance/script.rpm.sh | sudo bash
-	sudo dnf -y install camflow nano
+  	# Install Java
+  	sudo dnf -y install java-1.8.0-openjdk-devel
+  	# Download SPADE
+  	sudo dnf -y install audit fuse-devel fuse-libs git iptables kernel-devel-`uname -r` lsof uthash-devel
+  	wget https://github.com/ashish-gehani/SPADE/archive/master.zip
+  	unzip master.zip
+  	mv SPADE-master SPADE
+  	cd SPADE
+  	# Build SPADE
+  	./configure
+  	make
 
-	# Update grub to set the camflow kernel to default kernel at boot
-	sudo sed -i 's/saved/0/g' /etc/default/grub
-	sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+  	# Download and Install CamFlow
+  	curl -s https://packagecloud.io/install/repositories/camflow/provenance/script.rpm.sh | sudo bash
+  	sudo dnf -y install camflow nano
 
-	# Enable camflow service
-	sudo systemctl enable camconfd.service
-	sudo systemctl enable camflowd.service
+  	# Update grub to set the camflow kernel to default kernel at boot
+  	sudo sed -i 's/saved/0/g' /etc/default/grub
+  	sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-	# Update camflow config as required by SPADE
-	# Set duplicate for vertices to true
-	sudo sed -i 's/duplicate=false/duplicate=true/' /etc/camflow.ini 
-	# Comment out the default w3c format
-	sudo sed -i 's/format=w3c/;format=w3c/' /etc/camflowd.ini
-	# Uncomment the format recognized by SPADE
-	sudo sed -i 's/;format=spade_json/format=spade_json/' /etc/camflowd.ini
+  	# Enable camflow service
+  	sudo systemctl enable camconfd.service
+  	sudo systemctl enable camflowd.service
 
-	# Reboot the first time after setup according to instructions on CamFlow wiki
-	sudo reboot now
+  	# Update camflow config as required by SPADE
+  	# Set duplicate for vertices to true
+  	sudo sed -i 's/duplicate=false/duplicate=true/' /etc/camflow.ini
+  	# Comment out the default w3c format
+  	sudo sed -i 's/format=w3c/;format=w3c/' /etc/camflowd.ini
+  	# Uncomment the format recognized by SPADE
+  	sudo sed -i 's/;format=spade_json/format=spade_json/' /etc/camflowd.ini
 
+  	# Reboot the first time after setup according to instructions on CamFlow wiki
+  	sudo reboot now
   SHELL
 end
