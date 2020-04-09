@@ -48,7 +48,7 @@ Vagrant.configure(2) do |config|
   #
   config.vm.provider "virtualbox" do |vb|
    # Display the VirtualBox GUI when booting the machine
-   vb.gui = false
+   vb.gui = true
    # Customize the amount of memory on the VM:
    vb.memory = 16000
    # Customize CPU cap
@@ -119,7 +119,9 @@ Vagrant.configure(2) do |config|
     # install Docker
     sudo dnf -y install docker
     # enable docker
-    sudo systemctl start docker
     sudo systemctl enable docker
+    # need to do that to get docker to work...
+    # see (https://github.com/docker/cli/issues/297#issuecomment-547022631)
+    sudo grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
   SHELL
 end
