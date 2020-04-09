@@ -79,6 +79,11 @@ Vagrant.configure(2) do |config|
     # Update installed packages
     sudo dnf -y -v upgrade
 
+    # expand disk
+    sudo dnf -y install cloud-utils-growpart
+    sudo growpart /dev/sda 3
+    sudo xfs_growfs /
+
   	# Install Java
   	sudo dnf -y install java-1.8.0-openjdk-devel
   	# Download SPADE
@@ -110,5 +115,11 @@ Vagrant.configure(2) do |config|
   	sudo sed -i 's/format=w3c/;format=w3c/' /etc/camflowd.ini
   	# Uncomment the format recognized by SPADE
   	sudo sed -i 's/;format=spade_json/format=spade_json/' /etc/camflowd.ini
+
+    # install Docker
+    sudo dnf -y install docker
+    # enable docker
+    sudo systemctl start docker
+    sudo systemctl enable docker
   SHELL
 end

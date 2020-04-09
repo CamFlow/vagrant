@@ -7,7 +7,6 @@ This is a minimal configuration running CamFlow based on the Fedora distribution
 ```
 git clone https://github.com/CamFlow/vagrant.git
 cd ./vagrant/basic-fedora
-vagrant plugin install vagrant-vbguest
 vagrant up
 vagrant halt
 vagrant up
