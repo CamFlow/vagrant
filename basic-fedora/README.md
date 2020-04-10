@@ -33,6 +33,6 @@ The capture policy can be modified by editing `/etc/camflow.ini` (e.g. `sudo nan
 
 Provenance publication can be modified by editing `/etc/camflowd.ini` (e.g. `sudo nano /etc/camflowd.ini`).
 
-Please see our [documentation](https://github.com/CamFlow/documentation) for more details.
+Please see our [documentation](http://camflow.org) for more details.
 
 Reboot the machine for the new configuration to take effect (alternatively you can restart the associated services).

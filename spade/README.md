@@ -1,6 +1,12 @@
 # rpm test on Fedora
 
-This is a minimal configuration running CamFlow based on the Fedora distribution.
+This is a minimal configuration running CamFlow and SPADE using Fedora distribution.
+
+More information on [CamFlow](http://camflow.org/) and
+[SPADE](https://github.com/ashish-gehani/SPADE/wiki) are available online.
+Please, do report any issue to the
+[SPADE](https://github.com/ashish-gehani/SPADE/issues) and
+[CamFlow](https://github.com/CamFlow/camflow-dev/issues) teams.
 
 ## Installation
 
