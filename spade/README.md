@@ -1,4 +1,4 @@
-# rpm test on Fedora
+# SPADE & CamFlow on Fedora
 
 This is a minimal configuration running CamFlow and SPADE using Fedora distribution.
 

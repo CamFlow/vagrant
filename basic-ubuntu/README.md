@@ -1,4 +1,4 @@
-# Basic CamFlow on Fedora
+# Basic CamFlow on Ubuntu
 
 This is a minimal configuration running CamFlow based on the Ubuntu distribution.
 

@@ -1,4 +1,4 @@
-# CamFlow Dev on Fedora
+# CamFlow Dev on Ubuntu
 
 Vagrant script setting up a Ubuntu VM to develop CamFlow.
 
