@@ -12,7 +12,7 @@ Please, do report any issue to the
 
 ```
 git clone https://github.com/CamFlow/vagrant.git
-cd ./vagrant/rpm
+cd ./vagrant/spade
 vagrant up
 vagrant halt
 vagrant up
