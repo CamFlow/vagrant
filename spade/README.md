@@ -22,7 +22,7 @@ vagrant up
 Note: the installation process can take an extended amount of time depending on your internet connection speed.
 Note2: the rpm packages are graciously hosted on [packagecloud.io](https://packagecloud.io/camflow/provenance).
 
-## Testing Installation
+## Testing Installation of CamFlow
 
 ``` shell
 vagrant ssh
@@ -32,6 +32,18 @@ uname -r
 # check services
 journalctl -b | grep camflowd # audit service logs
 journalctl -b | grep camconfd # configuration service logs
+```
+
+## Testing Installation of SPADE
+
+```shell
+vagrant ssh
+# start SPADE
+~/SPADE/bin/spade start
+# add CamFlow reporter
+echo 'add reporter CamFlow' | ~/SPADE/bin/spade control
+# stop SPADE (if you want to)
+~/SPADE/bin/spade stop
 ```
 
 ## Configuring CamFlow
