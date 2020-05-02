@@ -56,7 +56,7 @@ Vagrant.configure(2) do |config|
    # Customize number of CPU
    vb.cpus = 4
    # Customize VM name
-   vb.name = "CamFlow-basic-fedora"
+   vb.name = "CamFlow-SPADE"
    # Disable usb 2.0
    vb.customize ["modifyvm", :id, "--usb", "on"]
    vb.customize ["modifyvm", :id, "--usbehci", "off"]
