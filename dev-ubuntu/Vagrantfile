@@ -54,10 +54,6 @@ Vagrant.configure(2) do |config|
     vb.cpus = 4
     # Customize VM name
     vb.name = "CamFlow-dev-ubuntu"
-    # Customize video memory
-    vb.customize ["modifyvm", :id, "--vram", "128"]
-    # Enable, if Guest Additions are installed, whether hardware 3D acceleration should be available
-    vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
   end
   #
   # View the documentation for the provider you are using for more
