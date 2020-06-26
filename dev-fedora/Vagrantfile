@@ -37,7 +37,7 @@ Vagrant.configure(2) do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder "./workspace", "/vagrant", create: true, owner: 'vagrant', disabled: false, type: 'rsync'
+  config.vm.synced_folder "./guest", "/vagrant", create: true, owner: 'vagrant', disabled: false, type: 'virtualbox'
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -73,29 +73,28 @@ Vagrant.configure(2) do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-		sudo dnf -y -v upgrade
+    sudo dnf -y -v upgrade
     sudo dnf -y -v groupinstall 'Development Tools'
     sudo dnf -y -v install fedpkg fedora-packager rpmdevtools ncurses-devel pesign grubby
     sudo dnf -y -v install ncurses-devel cmake clang gcc-c++ wget git openssl-devel bc nano patch mosquitto sparse flawfinder elfutils-libelf-devel
     sudo dnf -y -v install bison flex
     sudo dnf -y -v install xterm firefox
-		sudo dnf -y -v install uncrustify
+    sudo dnf -y -v install uncrustify
     sudo dnf -y -v install rpm-build
-    sudo dnf -y -v install ruby ruby-devel redhat-rpm-config graphviz
     sudo dnf -y -v install coccinelle
     sudo dnf -y -v install phoronix-test-suite
     sudo dnf -y -v install automake
     sudo dnf -y -v install alien
     sudo dnf -y -v install dwarves
     sudo dnf -y -v install python38
+
+    sudo dnf -y -v install ruby ruby-devel redhat-rpm-config graphviz
     gem install package_cloud
     gem install json rgl mqtt rake bundler
     gem install camtool
-		wget https://atom.io/download/rpm
-		mv ./rpm ./atom.rpm
-		sudo dnf -y -v install ./atom.rpm
-    cd /vagrant
-		mkdir workspace
+
+    cd /tmp
+    mkdir workspace
     cd workspace
     git clone https://github.com/CamFlow/camflow-dev.git
     git clone https://github.com/CamFlow/camflow-patches.git
@@ -109,22 +108,22 @@ Vagrant.configure(2) do |config|
     git checkout dev
     git pull
     make prepare
-    cd build/libprovenance
+    cd us-dependencies/libprovenance
     git checkout dev
     git pull
     cd ../camconfd
     git checkout dev
     git pull
-		cd ../camflow-cli
+    cd ../camflow-cli
     git checkout dev
     git pull
     cd ../camflowd
-		git checkout dev
-		git pull
-		cd ../../../libcamquery
     git checkout dev
     git pull
-    cd ../..
-    sudo chown -R vagrant ./workspace
+    cd ../../../libcamquery
+    git checkout dev
+    git pull
+
+    mv -f /tmp/workspace /vagrant || true
   SHELL
 end
