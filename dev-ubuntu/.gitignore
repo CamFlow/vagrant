@@ -20,3 +20,6 @@ vignettes/*.pdf
 
 #vagrant
 .vagrant
+
+# guest shared files
+guest/*
