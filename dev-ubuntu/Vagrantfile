@@ -79,8 +79,6 @@ Vagrant.configure(2) do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-    sudo DEBIAN_FRONTEND=noninteractive apt-get -y update
-    sudo DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
     sudo DEBIAN_FRONTEND=noninteractive apt-get -y install build-essential
     sudo DEBIAN_FRONTEND=noninteractive apt-get -y install libncurses-dev cmake
     sudo DEBIAN_FRONTEND=noninteractive apt-get -y install clang gcc g++ wget
@@ -91,13 +89,17 @@ Vagrant.configure(2) do |config|
     sudo DEBIAN_FRONTEND=noninteractive apt-get -y install libelf-dev uncrustify
     sudo DEBIAN_FRONTEND=noninteractive apt-get -y install uthash-dev
     sudo DEBIAN_FRONTEND=noninteractive apt-get -y install libinih-dev
-    sudo DEBIAN_FRONTEND=noninteractive apt-get -y install libpaho-mqtt-dev
     sudo DEBIAN_FRONTEND=noninteractive apt-get -y install coccinelle
     sudo DEBIAN_FRONTEND=noninteractive apt-get -y install phoronix-test-suite
     sudo DEBIAN_FRONTEND=noninteractive apt-get -y install ruby libz-dev
     sudo DEBIAN_FRONTEND=noninteractive apt-get -y install zlib1g-dev
 
     cd /tmp
+		git clone https://github.com/eclipse/paho.mqtt.c.git
+		cd paho.mqtt.c
+		make
+		sudo make install
+		cd ..
     mkdir workspace
     cd workspace
     git clone https://github.com/CamFlow/camflow-dev.git
