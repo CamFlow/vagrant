@@ -12,7 +12,7 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "mrlesmithjr/fedora31-desktop"
+  config.vm.box = "fedora/32-cloud-base"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -39,7 +39,7 @@ Vagrant.configure(2) do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
 
-  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.synced_folder ".", "/vagrant"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -53,12 +53,9 @@ Vagrant.configure(2) do |config|
    # Customize CPU cap
    vb.customize ["modifyvm", :id, "--cpuexecutioncap", "70"]
    # Customize number of CPU
-   vb.cpus = 2
+   vb.cpus = 4
    # Customize VM name
    vb.name = "CamFlow-rpm"
-   # Disable usb 2.0
-   vb.customize ["modifyvm", :id, "--usb", "on"]
-   vb.customize ["modifyvm", :id, "--usbehci", "off"]
   end
   #
   # View the documentation for the provider you are using for more
@@ -76,15 +73,13 @@ Vagrant.configure(2) do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
     sudo dnf -y install curl git
-    sudo dnf -y -v install cloud-utils-growpart
-    sudo growpart /dev/sda 3
-    sudo xfs_growfs /
+    sudo dnf -y install make
     git clone https://github.com/CamFlow/camflow-install.git
     cd camflow-install && make install_rpm
 		# boot by default to camflow
     sudo sed -i 's/saved/0/g' /etc/default/grub
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
-    sudo dnf -y install ruby ruby-devel redhat-rpm-config graphviz
+    sudo dnf -y install ruby ruby-devel redhat-rpm-config graphviz gcc
     gem install json rgl mqtt rake bundler camtool
   SHELL
 end
