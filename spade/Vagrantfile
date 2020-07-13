@@ -14,7 +14,7 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "mrlesmithjr/fedora31-desktop"
+  config.vm.box = "fedora/32-cloud-base"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -79,10 +79,8 @@ Vagrant.configure(2) do |config|
     # Update installed packages
     sudo dnf -y -v upgrade
 
-    # expand disk
-    sudo dnf -y install cloud-utils-growpart
-    sudo growpart /dev/sda 3
-    sudo xfs_growfs /
+    # install make
+    sudo dnf -y install make wget unzip zip
 
   	# Install Java
   	sudo dnf -y install java-1.8.0-openjdk-devel
