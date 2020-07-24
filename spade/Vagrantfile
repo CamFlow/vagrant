@@ -122,5 +122,9 @@ Vagrant.configure(2) do |config|
     # need to do that to get docker to work...
     # see (https://github.com/docker/cli/issues/297#issuecomment-547022631)
     sudo grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
+
+    # make it so that /tmp is cleaned on reboot
+    touch /etc/tmpfiles.d/boot.conf
+    echo 'R! /tmp 1777 root root ~0' > /etc/tmpfiles.d/boot.conf
   SHELL
 end

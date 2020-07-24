@@ -150,5 +150,9 @@ Vagrant.configure(2) do |config|
     make prepare
 
     mv -v -f /tmp/workspace /vagrant
+
+    # make it so that /tmp is cleaned on reboot
+    touch /etc/tmpfiles.d/boot.conf
+    echo 'R! /tmp 1777 root root ~0' > /etc/tmpfiles.d/boot.conf
   SHELL
 end
