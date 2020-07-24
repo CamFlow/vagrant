@@ -102,6 +102,11 @@ Vagrant.configure(2) do |config|
     sudo dnf -y -v install python38
     sudo dnf -y -v install llvm bpftool libbpf libbpf-devel elfutils-libelf
 
+    git clone https://github.com/libbpf/libbpf
+    cd libbpf/src
+    make
+    make install
+
     sudo dnf -y -v install ruby ruby-devel redhat-rpm-config graphviz
     gem install package_cloud
     gem install json rgl mqtt rake bundler
@@ -154,5 +159,6 @@ Vagrant.configure(2) do |config|
     # make it so that /tmp is cleaned on reboot
     touch /etc/tmpfiles.d/boot.conf
     echo 'R! /tmp 1777 root root ~0' > /etc/tmpfiles.d/boot.conf
+    echo '*                -       memlock         unlimited' >> /etc/security/limits.conf
   SHELL
 end
