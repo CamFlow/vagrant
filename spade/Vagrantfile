@@ -89,7 +89,7 @@ Vagrant.configure(2) do |config|
   	cd SPADE
   	# Build SPADE
   	./configure
-  	make
+  	make KERNEL_MODULES=false
 
   	# Download and Install CamFlow
   	curl -s https://packagecloud.io/install/repositories/camflow/provenance/script.rpm.sh | sudo bash
