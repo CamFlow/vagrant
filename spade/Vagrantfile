@@ -80,7 +80,7 @@ Vagrant.configure(2) do |config|
     sudo dnf -y install make wget unzip zip
 
   	# Install Java
-  	sudo dnf -y install java-1.8.0-openjdk-devel
+  	sudo dnf install java-11-openjdk-devel.x86_64
   	# Download SPADE
   	sudo dnf -y install audit fuse-devel fuse-libs git iptables kernel-devel-`uname -r` lsof uthash-devel curl cmake clang
   	wget https://github.com/ashish-gehani/SPADE/archive/master.zip
