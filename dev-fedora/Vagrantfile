@@ -12,7 +12,7 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "fedora/32-cloud-base"
+  config.vm.box = "fedora/33-cloud-base"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -93,16 +93,18 @@ Vagrant.configure(2) do |config|
     sudo dnf -y -v install inih-devel
     sudo dnf -y -v install paho-c-devel
     sudo dnf -y -v install uncrustify
-    sudo dnf -y -v install rpm-build
+    sudo dnf -y -v install rpm-build redhat-rpm-config
     sudo dnf -y -v install coccinelle
     sudo dnf -y -v install phoronix-test-suite
     sudo dnf -y -v install automake
     sudo dnf -y -v install alien
     sudo dnf -y -v install dwarves
     sudo dnf -y -v install python38
-    sudo dnf -y -v install llvm bpftool libbpf libbpf-devel elfutils-libelf libcap
+    sudo dnf -y -v install llvm bpftool libbpf libbpf-devel elfutils-libelf
+    sudo dnf -y -v install libcap
+    sudo dnf -y -v install openssl
 
-    sudo dnf -y -v install ruby ruby-devel redhat-rpm-config graphviz
+    sudo dnf -y -v install ruby ruby-devel graphviz
     gem install package_cloud
     gem install json rgl mqtt rake bundler
     gem install camtool
@@ -122,32 +124,6 @@ Vagrant.configure(2) do |config|
     cd camflow-dev
     git checkout dev
     git pull
-    mkdir -p us-dependencies
-    cd us-dependencies
-    git clone https://github.com/CamFlow/libprovenance.git
-    cd libprovenance
-    git checkout dev
-    git pull
-    make prepare
-    cd ..
-    git clone https://github.com/CamFlow/camconfd.git
-    cd camconfd
-    git checkout dev
-    git pull
-    make prepare
-    cd ..
-    git clone https://github.com/CamFlow/camflow-cli.git
-    cd camflow-cli
-    git checkout dev
-    git pull
-    make prepare
-    cd ..
-    git clone https://github.com/CamFlow/camflowd.git
-    cd camflowd
-    cd ../camflowd
-    git checkout dev
-    git pull
-    make prepare
 
     mv -v -f /tmp/workspace /vagrant
 
