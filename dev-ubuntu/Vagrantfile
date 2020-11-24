@@ -113,32 +113,6 @@ Vagrant.configure(2) do |config|
     cd camflow-dev
     git checkout dev
     git pull
-    mkdir -p us-dependencies
-    cd us-dependencies
-    git clone https://github.com/CamFlow/libprovenance.git
-    cd libprovenance
-    git checkout dev
-    git pull
-    make prepare
-    cd ..
-    git clone https://github.com/CamFlow/camconfd.git
-    cd camconfd
-    git checkout dev
-    git pull
-    make prepare
-    cd ..
-    git clone https://github.com/CamFlow/camflow-cli.git
-    cd camflow-cli
-    git checkout dev
-    git pull
-    make prepare
-    cd ..
-    git clone https://github.com/CamFlow/camflowd.git
-    cd camflowd
-    cd ../camflowd
-    git checkout dev
-    git pull
-    make prepare
 
     mv -v -f /tmp/workspace /vagrant
   SHELL
