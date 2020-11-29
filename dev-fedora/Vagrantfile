@@ -99,7 +99,7 @@ Vagrant.configure(2) do |config|
     sudo dnf -y -v install automake
     sudo dnf -y -v install alien
     sudo dnf -y -v install dwarves
-    sudo dnf -y -v install python38
+    sudo dnf -y -v install python3 python3-devel
     sudo dnf -y -v install llvm bpftool libbpf libbpf-devel elfutils-libelf
     sudo dnf -y -v install libcap
     sudo dnf -y -v install openssl
