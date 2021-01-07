@@ -103,6 +103,7 @@ Vagrant.configure(2) do |config|
     sudo dnf -y -v install llvm bpftool libbpf libbpf-devel elfutils-libelf
     sudo dnf -y -v install libcap
     sudo dnf -y -v install openssl
+    sudo dnf -y -v install valgrind
 
     sudo dnf -y -v install ruby ruby-devel graphviz
     gem install package_cloud
