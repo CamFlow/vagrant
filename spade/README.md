@@ -20,7 +20,7 @@ vagrant up
 ```
 
 Note: the installation process can take an extended amount of time depending on your internet connection speed.
-Note2: the rpm packages are graciously hosted on [packagecloud.io](https://packagecloud.io/camflow/provenance).
+Note2: the rpm packages are graciously hosted on [cloudsmith](https://cloudsmith.io/~camflow/repos/camflow/packages/).
 
 ## Testing Installation of CamFlow
 
