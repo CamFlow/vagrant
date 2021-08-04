@@ -82,7 +82,6 @@ Vagrant.configure(2) do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-    sudo dnf -y -v upgrade
     sudo dnf -y -v groupinstall 'Development Tools'
     sudo dnf -y -v install fedpkg fedora-packager rpmdevtools ncurses-devel
     sudo dnf -y -v install cmake clang gcc-c++ wget git pesign grubby
