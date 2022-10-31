@@ -12,7 +12,7 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "fedora/35-cloud-base"
+  config.vm.box = "bento/fedora-36"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -54,9 +54,6 @@ Vagrant.configure(2) do |config|
     vb.cpus = 6
     # Customize VM name
     vb.name = "CamFlow-dev-fedora"
-    # Disable usb 2.0
-    vb.customize ["modifyvm", :id, "--usb", "on"]
-    vb.customize ["modifyvm", :id, "--usbehci", "off"]
   end
   #
   # View the documentation for the provider you are using for more
